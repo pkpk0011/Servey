@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import './Home.css';
 
-function Home () {
+function Home (props) {
     const [nickname, setNickname] = useState("");
     function onChange(e){
         setNickname(e.target.value);
     }
+
+function onClick () {
+    setNickname(nickname);
+    props.history.push('/test',nickname);
+}
 
     return (
         <div className="home_area">
@@ -23,7 +28,7 @@ function Home () {
             </div>
             <div>
                 <a href="/test" className="a_start">
-                    <button type="button" className="btn_start">
+                    <button type="button" onClick = {onClick} className="btn_start">
                         START
                     </button>
                 </a>

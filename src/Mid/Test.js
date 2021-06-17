@@ -60,7 +60,7 @@ function Test (props) {
             <div className="Test_area">
                 <div className="content_box">
                     <h3>
-                        <span>Q{Page + 1}.</span>
+                        <span>Q{Page + 1}. {props.location.state}</span>
                         <span>{quiz_list[Page]?.QUIZNAME}</span>
                     </h3>
                 </div>
