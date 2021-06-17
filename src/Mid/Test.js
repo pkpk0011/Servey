@@ -75,6 +75,9 @@ function Test (props) {
                 </div>
             </div>
         )
+        default : return (
+            <div>none</div>
+        )
     }
     
 }

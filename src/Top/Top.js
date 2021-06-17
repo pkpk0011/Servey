@@ -7,7 +7,7 @@ function Top() {
         <div className="header">
             <h1>
                 <a href="/">
-                    <img src={POINTMONSTER} className="logo" />
+                    <img src={POINTMONSTER} className="logo" alt="profile" />
                 </a>
             </h1>
         </div>
