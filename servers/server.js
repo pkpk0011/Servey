@@ -25,12 +25,11 @@ app.use(`/quiz`, (req, res) => {
     const sql = 'Select * from `QUIZ`';
     connection.query(sql, function (err, result){
 
-        // let quiz_list = result.map(
-        //     function (currentArray) {
-        //         return currentArray
-        //     }
-        // )
-        let quiz_list = [12,1];
+        let quiz_list = result.map(
+            function (currentArray) {
+                return currentArray
+            }
+        )
 
         res.json({quiz_list:quiz_list});
     });
