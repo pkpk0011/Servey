@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import Kakao from './Img/Kakao.png';
+import './KakaoShareButton.css';
 
 const KakaoShareButton = () => {
   useEffect(() => {
@@ -55,7 +56,7 @@ const KakaoShareButton = () => {
     <div className="kakao-share-button">
       {/* Kakao share button */}
       <button id="kakao-link-btn">
-        <img src={Kakao} alt="kakao-share-icon" />
+        <img className="kakao" src={Kakao} alt="kakao-share-icon" />
       </button>
     </div>
   )
