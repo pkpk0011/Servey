@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import axios from "axios";
+// import { useState, useEffect } from 'react';
+// import axios from "axios";
 import './Test.css';
 
 function Test (props) {
@@ -91,7 +91,7 @@ function Test (props) {
                 
             </div>
             <div className = "statusBar">
-                <div className = "done" style={{width:`${100 / quiz_list.length * (Page+1)}%`}} />
+           
             </div>
         </div>
     );
