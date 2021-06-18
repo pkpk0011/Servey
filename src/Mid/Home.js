@@ -6,11 +6,10 @@ function Home (props) {
     function onChange(e){
         setNickname(e.target.value);
     }
-
-function onClick () {
-    setNickname(nickname);
-    props.history.push('/test',nickname);
-}
+    
+function pushNickname () {
+    props.history.push('/test/',nickname);
+} // redux로 보낼 필요있음
 
     return (
         <div className="home_area">
@@ -28,7 +27,7 @@ function onClick () {
             </div>
             <div>
                 <a href="/test" className="a_start">
-                    <button type="button" onClick = {onClick} className="btn_start">
+                    <button type="button" onClick = {pushNickname} className="btn_start">
                         START
                     </button>
                 </a>

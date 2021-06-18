@@ -53,7 +53,7 @@ function Test (props) {
         }).catch(function(error){
             console.log(error);
         })
-    })
+    }, [])
 
     switch (Page) {
         case Page : return (
@@ -74,7 +74,7 @@ function Test (props) {
                     <div className = "done" style={{width:`${100 / quiz_list.length * (Page+1)}%`}} />
                 </div>
             </div>
-        )
+        ); break;
         default : return (
             <div>none</div>
         )
@@ -82,4 +82,4 @@ function Test (props) {
     
 }
 
-export default withRouter(Test);
+export default Test;

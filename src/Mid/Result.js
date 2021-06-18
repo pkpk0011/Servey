@@ -3,7 +3,7 @@ import './Result.css';
 function Result (props) {
 
     const result = props.location.state;
-
+    console.log(props)
     return (
         <div className="Result_area">
             <div className="container">
