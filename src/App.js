@@ -16,7 +16,7 @@ function App() {
   
   return (
     <div className="App">
-      <Router>
+      <Router basename="hscandoit.co.kr">
         <div className="App-header">
           <Top />
         </div>
