@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Home.css';
+import KakaoShareButton from '../KakaoShareButton'
+
 
 function Home (props) {
     const [nickname, setNickname] = useState("");
@@ -37,6 +39,7 @@ function pushNickname () {
                     참여자수
                 </span>
             </div>
+            <KakaoShareButton />
         </div>
     )
 }
