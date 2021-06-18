@@ -45,14 +45,21 @@ function Test (props) {
         }
     }
 
-    useEffect(() => {
-        axios.post('http://localhost:3001/quiz', {
+    // useEffect((e) => {
+    //     axios.post('http://localhost:3001/quiz', {
+    //     }).then(function(res){
+    //         setQuiz_list(res.data.quiz_list)
+    //     }).catch(function(error){
+    //         console.log(error);
+    //     })
+    // }, [])
+
+    axios.post('http://localhost:3001/quiz', {
         }).then(function(res){
             setQuiz_list(res.data.quiz_list)
         }).catch(function(error){
             console.log(error);
         })
-    }, [])
 
     switch (Page) {
         case Page : return (
