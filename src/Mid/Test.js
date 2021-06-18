@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
 import axios from "axios";
 import './Test.css';
 
@@ -74,7 +73,7 @@ function Test (props) {
                     <div className = "done" style={{width:`${100 / quiz_list.length * (Page+1)}%`}} />
                 </div>
             </div>
-        ); break;
+        );
         default : return (
             <div>none</div>
         )
