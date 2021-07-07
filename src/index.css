@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "extrabold";
+    src: url("./Font/NANUMSQUARE_0.TTF");
+  }
+  
+  @font-face {
+    font-family: "bold";
+    src: url("./Font/NANUMSQUARE.TTF");
+  }

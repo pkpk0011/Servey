@@ -242,7 +242,7 @@ function Test (props) {
                         <button className = "one_btn" onClick={oneButton}>뭐? 그게 떡상 각이라고? 당장 산다</button>
                         <button className = "two_btn" onClick={twoButton}>흠...그래? (흘려 듣는다)</button>
                         <button className = "three_btn" onClick={threeButton}>투자할만한 곳인지 꼼꼼하게 찾아본다</button>
-                        <button className = "four_btn"onClick={fourButton}>???</button>
+                        <button className = "four_btn"onClick={fourButton}>이미 다른 계획으로 쓸 돈이 없다</button>
                     </div>
                 </div>
             </div>

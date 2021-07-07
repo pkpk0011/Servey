@@ -14,15 +14,17 @@ span {
 }
 
 .title1 {
-    margin: 30px 30px 0px;
+    margin: 30px 0px 10px 30px;
     font-size: 30px;
     font-weight: 800;
+    font-family: "extrabold";
 }
 
 .title2 {
     margin: 0px 30px 0px;
     font-size: 20px;
     font-weight: 550;
+    font-family: "bold";
 }
 
 h1 { 
@@ -38,6 +40,7 @@ h1 {
     font-weight: 700;
     font-size: 30px;
     cursor: pointer;
+    font-family: "extrabold";
 }
 
 .nickname {
@@ -48,11 +51,12 @@ h1 {
     height: 40px;
     border-radius: 1rem;
     text-align: center;
+    font-family: "bold";
 }
 
 .div_participant {
     padding-top: 8px;
-    margin-top: 20px;
+    margin-top: 10px;
     justify-self: center;
     justify-content: center;
     width: 170px;
@@ -66,6 +70,7 @@ h1 {
 .span_participant { 
     padding: 0px;
     font-size: 16px;
+    font-family: "bold";
 }
 
 .homeImg {
@@ -78,14 +83,16 @@ h1 {
     margin-top: 30px;
     font-size: 20px;
     font-weight: 600;
+    font-family: "bold";
 }
 
 .div_share {
     margin-top: 70px;
+    font-family: "bold";
 }
 
 .share {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
 }
 
