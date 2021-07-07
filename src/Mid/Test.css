@@ -1,12 +1,26 @@
-.Test_area {
-    width: 80%;
-    padding: 4rem 0;
+.subject {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    text-align: left;
+    display: grid;
+}
+
+.subject1, .subject2 {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: left;
+    padding: 0px;
+}
+
+.subject2 {
+    margin-top: 10px;
 }
 
 .btn_box {
     justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
+    margin-top: 50px;
 }
 
 button {
@@ -17,11 +31,12 @@ button {
     border-radius: 0.5rem;
     border: 5px solid #5753e2;
     text-align: center;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .content_box {
-    padding: 3.7rem 1rem;
-    text-align: center;
+    width: 75%;
     border: none;
     border-radius: 0.5rem;
 }
@@ -35,34 +50,82 @@ button {
 }
 }
 
-.one_btn, .four_btn {
-    background-color: #FCF2BF;
+.one_btn, .two_btn, .three_btn, .four_btn {
+    background-color: #FDFFC2;
     border: none;
+    border-radius: 1rem;
+    height: 70px;
+    margin-top: 20px;
+    cursor: pointer;
 }
 
-.two_btn, .three_btn {
-    background-color: #FCFAEE;
+.one_btn:hover, .two_btn:hover, .three_btn:hover, .four_btn:hover {
+    background-color: #FAFF67;
+}
+
+
+.status {
+    display: flex;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.back {
+    margin: 0px;
+    flex: 0.6;
+    padding-left: 10px;
+    align-self: center;
+    cursor: pointer;
+}
+
+.back_btn {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: white;
     border: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #00FFAA;
+}
+
+.statusBar_Num {
+    flex: 1;
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    padding-bottom: 5px;
 }
 
 .statusBar {
-    position: fixed;
+    align-self: center;
     left: 24px;
     right: 24px;
     bottom: 24px;
     height: 6px;
     border-radius: 3px;
     background: #f4f4f4;
+    flex: 5;
+    min-height: 9px;
 }
 
 .statusBar .done {
     float: left;
     width: 10%;
     height: 100%;
-    border-radius: 3px;
+    min-height: 9px;
+    border-radius: 5px;
     background-image: linear-gradient(
 135deg
-, #D65C5B 0%, #E29F9D 100%);
+, #00FFAA 0%, #00FFAA 100%);
     -webkit-transition: 0.3s;
     transition: 0.3s;
+}
+
+.test_title {
+    font-size: 25px;
+    font-weight: 600;
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 30px;
 }

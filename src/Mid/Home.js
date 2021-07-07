@@ -1,45 +1,58 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
-import KakaoShareButton from '../KakaoShareButton'
+import KakaoShareButton from '../KakaoShareButton';
+import homeImg from '../Img/homeImg.png';
 
 
 function Home (props) {
-    const [nickname, setNickname] = useState("");
-    function onChange(e){
-        setNickname(e.target.value);
+    const [client, setClient] = useState();
+     function onChange(e){
+         setClient(e.target.value);
     }
-    
+    console.log(client)
 function pushNickname () {
-    props.history.push('/test/',nickname);
-} // redux로 보낼 필요있음
+    props.history.push('/test',client);
+}
 
     return (
         <div className="home_area">
-            <span>
-                나는 부자가 될 수 있을까?
-            </span>
-            <span>
-                투자성향으로 알아보는,
-            </span>
-            <span>
+                <span className="title1">
+                투자고수<br />
+                테스트
+                </span>
+                <span className="title2">
                 나는 어떤 동물일까?
-            </span>
-            <div>
-                <input type="text" value={nickname} className="nickname" onChange={onChange} placeholder="닉네임" />
+                </span>
+            <div className="img_area">
+                <img src={homeImg} className="homeImg" />
             </div>
             <div>
-                <a href="/test" className="a_start">
+                <input type="text" value={client} className="nickname" onChange={onChange} placeholder="[참여 닉네임]" />
+            </div>
+            <div>
+                <Link to="/test">
                     <button type="button" onClick = {pushNickname} className="btn_start">
                         START
                     </button>
-                </a>
+                </Link>
+            </div>
+            <div className="client_text">
+                참여자 수
             </div>
             <div className="div_participant">
                 <span className="span_participant">
-                    참여자수
+                    1,100,200
                 </span>
             </div>
-            <KakaoShareButton />
+            <div className="div_share">
+                <span className="share">
+                    공유하기
+                </span>
+                <div className="sharebox">
+                    <KakaoShareButton />
+                </div>
+            </div>
         </div>
     )
 }

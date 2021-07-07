@@ -1,13 +1,17 @@
 .kakao-share-button {
-    justify-self: left;
+    justify-self: center;
+    width: 100%;
 }
 
 #kakao-link-btn {
     background-color: white;
-    width: 5em;
+    width: 50px;
     border : none;
+    padding: 0px;
+    margin: 0px;
+    cursor: pointer;
 }
 
 .kakao {
-    width: 10em;
+    width: 100%;
 }
