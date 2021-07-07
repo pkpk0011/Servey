@@ -25,7 +25,7 @@ function pushNickname () {
                 나는 어떤 동물일까?
                 </span>
             <div className="img_area">
-                <img src={homeImg} className="homeImg" />
+                <img src={homeImg} className="homeImg" alt="home" />
             </div>
             <div>
                 <input type="text" value={client} className="nickname" onChange={onChange} placeholder="[참여 닉네임]" />
