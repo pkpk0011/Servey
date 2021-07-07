@@ -6,7 +6,6 @@ import paresseux from '../Img/paresseux.png';
 import puppy from '../Img/puppy.jpg';
 import squirrel from '../Img/squirrel.png';
 import sunfish from '../Img/sunfish.png';
-import { useState } from 'react';
 import KakaoShareButton from '../KakaoShareButton';
 
 function Result (props) {
@@ -41,7 +40,7 @@ function Result (props) {
 
     const Img_array = [crow, dungbeetle, meerkat, paresseux, puppy, squirrel, sunfish];
 
-    console.log(result_array.indexOf(ImgName[0].value));
+    // console.log(result_array.indexOf(ImgName[0].value));
 
     return (
         <div className="Result_area">

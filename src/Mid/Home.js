@@ -9,7 +9,7 @@ function Home (props) {
      function onChange(e){
          setClient(e.target.value);
     }
-    console.log(client)
+    
     function pushNickname () {
         props.history.push('/test', client);
     }

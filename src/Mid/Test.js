@@ -4,7 +4,6 @@ import './Test.css';
 function Test (props) {
 
     const [Page, setPage] = useState(1);
-    console.log(props)
 
     const [clientResult, setClientResult] = useState({
         nickname: props.location.state,
@@ -26,8 +25,6 @@ function Test (props) {
     const [back8, setBack8] = useState();
     const [back9, setBack9] = useState();
     const [back10, setBack10] = useState();
-
-    console.log(clientResult, "back2", back2)
 
     const oneButton = () => {
         if (Page === 1) {
