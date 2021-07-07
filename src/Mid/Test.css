@@ -59,7 +59,7 @@ button {
     cursor: pointer;
 }
 
-.one_btn:hover, .two_btn:hover, .three_btn:hover, .four_btn:hover {
+.one_btn:active, .two_btn:active, .three_btn:active, .four_btn:active {
     background-color: #FAFF67;
 }
 
