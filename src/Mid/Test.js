@@ -4,55 +4,293 @@ import './Test.css';
 function Test (props) {
 
     const [Page, setPage] = useState(1);
-    const [Value, setValue] = useState(30);
+    console.log(props)
 
     const [clientResult, setClientResult] = useState({
         nickname: props.location.state,
-        
+        meerkat: 0,
+        sunfish: 0,
+        crow: 0,
+        dungbeetle: 0,
+        paresseux: 0,
+        squirrel: 0,
+        puppy: 0
         });
+    const [back1, setBack1] = useState();
+    const [back2, setBack2] = useState();
+    const [back3, setBack3] = useState();
+    const [back4, setBack4] = useState();
+    const [back5, setBack5] = useState();
+    const [back6, setBack6] = useState();
+    const [back7, setBack7] = useState();
+    const [back8, setBack8] = useState();
+    const [back9, setBack9] = useState();
+    const [back10, setBack10] = useState();
 
-    console.log(clientResult)
+    console.log(clientResult, "back2", back2)
 
     const oneButton = () => {
-        if (Page === 11) {
-            props.history.push('/result',Value+1);
+        if (Page === 1) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, meerkat: clientResult.meerkat+3 });
+            setBack1(clientResult);
+        }
+        else if (Page === 2) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, dungbeetle: clientResult.dungbeetle+3 });
+            setBack2(clientResult);
+        }
+        else if (Page === 3) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, crow: clientResult.crow+3 });
+            setBack3(clientResult);
+        }
+        else if (Page === 4) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, meerkat: clientResult.meerkat+3 });
+            setBack4(clientResult);
+        }
+        else if (Page === 5) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, crow: clientResult.crow+3 });
+            setBack5(clientResult);
+        }
+        else if (Page === 6) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, meerkat: clientResult.meerkat+3 });
+            setBack6(clientResult);
+        }
+        else if (Page === 7) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, puppy: clientResult.puppy+3 });
+            setBack7(clientResult);
+        }
+        else if (Page === 8) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, crow: clientResult.crow+3 });
+            setBack8(clientResult);
+        }
+        else if (Page === 9) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, puppy: clientResult.puppy+3 });
+            setBack9(clientResult);
+        }
+        else if (Page === 10) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, puppy: clientResult.puppy+3, dungbeetle: clientResult.dungbeetle+3 });
+            setBack10(clientResult);
         }
         else {
-            setPage(Page+1);
-            setValue(Value+1);
-            setClientResult(clientResult[1]+1)
+            props.history.push("/result", { ...clientResult, meerkat: clientResult.meerkat+3 });
         }
     }
     const twoButton = () => {
-        if (Page === 11) {
-            props.history.push('/result',Value+2);
+        if (Page === 1) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, dungbeetle: clientResult.dungbeetle+3, squirrel: clientResult.squirrel+3 });
+            setBack1(clientResult);
+        }
+        else if (Page === 2) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, puppy: clientResult.puppy+3 });
+            setBack2(clientResult);
+        }
+        else if (Page === 3) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, sunfish: clientResult.sunfish+3 });
+            setBack3(clientResult);
+        }
+        else if (Page === 4) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, dungbeetle: clientResult.dungbeetle+3 });
+            setBack4(clientResult);
+        }
+        else if (Page === 5) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, squirrel: clientResult.squirrel+3 });
+            setBack5(clientResult);
+        }
+        else if (Page === 6) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, puppy: clientResult.puppy+3 });
+            setBack6(clientResult);
+        }
+        else if (Page === 7) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, squirrel: clientResult.squirrel+3 });
+            setBack7(clientResult);
+        }
+        else if (Page === 8) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, puppy: clientResult.puppy+3 });
+            setBack8(clientResult);
+        }
+        else if (Page === 9) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, crow: clientResult.crow+3 });
+            setBack9(clientResult);
+        }
+        else if (Page === 10) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, crow: clientResult.crow+3 });
+            setBack10(clientResult);
         }
         else {
-            setPage(Page+1);
-            setValue(Value+2);
+            props.history.push("/result", { ...clientResult, dungbeetle: clientResult.dungbeetle+3 });
         }
     }
     const threeButton = () => {
-        if (Page === 11) {
-            props.history.push('/result',Value-1);
+        if (Page === 1) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, sunfish: clientResult.sunfish+3 });
+            setBack1(clientResult);
+        }
+        else if (Page === 2) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, meerkat: clientResult.meerkat+3 });
+            setBack2(clientResult);
+        }
+        else if (Page === 3) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, puppy: clientResult.puppy+3 });
+            setBack3(clientResult);
+        }
+        else if (Page === 4) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, squirrel: clientResult.squirrel+3 });
+            setBack4(clientResult);
+        }
+        else if (Page === 5) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, dungbeetle: clientResult.dungbeetle+3 });
+            setBack5(clientResult);
+        }
+        else if (Page === 6) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, crow: clientResult.crow+3 });
+            setBack6(clientResult);
+        }
+        else if (Page === 7) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, dungbeetle: clientResult.dungbeetle+3 });
+            setBack7(clientResult);
+        }
+        else if (Page === 8) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, dungbeetle: clientResult.dungbeetle+3 });
+            setBack8(clientResult);
+        }
+        else if (Page === 9) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, meerkat: clientResult.meerkat+3 });
+            setBack9(clientResult);
+        }
+        else if (Page === 10) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, squirrel: clientResult.squirrel+3 });
+            setBack10(clientResult);
         }
         else {
-            setPage(Page+1);
-            setValue(Value-1);
+            props.history.push("/result", { ...clientResult, crow: clientResult.crow+3 });
         }
     }
     const fourButton = () => {
-        if (Page === 11) {
-            props.history.push('/result',Value-2);
+        if (Page === 1) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, dungbeetle: clientResult.dungbeetle+3, crow: clientResult.crow+3 });
+            setBack1(clientResult);
+        }
+        else if (Page === 2) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, crow: clientResult.crow+3 });
+            setBack2(clientResult);
+        }
+        else if (Page === 3) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, paresseux: clientResult.paresseux+10 });
+            setBack3(clientResult);
+        }
+        else if (Page === 4) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, sunfish: clientResult.sunfish+3 });
+            setBack4(clientResult);
+        }
+        else if (Page === 5) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, paresseux: clientResult.paresseux+10 });
+            setBack5(clientResult);
+        }
+        else if (Page === 6) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, dungbeetle: clientResult.dungbeetle+3 });
+            setBack6(clientResult);
+        }
+        else if (Page === 7) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, sunfish: clientResult.sunfish+3 });
+            setBack7(clientResult);
+        }
+        else if (Page === 8) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, sunfish: clientResult.sunfish+3, meerkat: clientResult.meerkat+3 });
+            setBack8(clientResult);
+        }
+        else if (Page === 9) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, sunfish: clientResult.sunfish+3 });
+            setBack9(clientResult);
+        }
+        else if (Page === 10) {
+            setPage(Page+1);
+            setClientResult({ ...clientResult, meerkat: clientResult.meerkat+3 });
+            setBack10(clientResult);
         }
         else {
-            setPage(Page+1);
-            setValue(Value-2);
+            props.history.push("/result", { ...clientResult, sunfish: clientResult.sunfish+3 });
         }
     }
 
     const PageBack = () => {
         setPage(Page-1);
+        if (Page === 2) {
+            setClientResult(back1);
+        }
+        else if (Page === 3) {
+            setPage(Page-1);
+            setClientResult(back2);
+        }
+        else if (Page === 4) {
+            setPage(Page-1);
+            setClientResult(back3);
+        }
+        else if (Page === 5) {
+            setPage(Page-1);
+            setClientResult(back4);
+        }
+        else if (Page === 6) {
+            setPage(Page-1);
+            setClientResult(back5);
+        }
+        else if (Page === 7) {
+            setPage(Page-1);
+            setClientResult(back6);
+        }
+        else if (Page === 8) {
+            setPage(Page-1);
+            setClientResult(back7);
+        }
+        else if (Page === 9) {
+            setPage(Page-1);
+            setClientResult(back8);
+        }
+        else if (Page === 10) {
+            setPage(Page-1);
+            setClientResult(back9);
+        }
+        else {
+            setPage(Page-1);
+            setClientResult(back10);
+        }
     }
 
     switch (Page) {

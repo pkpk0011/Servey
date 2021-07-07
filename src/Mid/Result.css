@@ -1,4 +1,69 @@
 .Result_area {
-    width: 80%;
-    padding: 4rem 0;
+    width: 100%;
+    margin-top: 10px;
+    border-top: 2px solid #93D2DB;
+}
+
+.container {
+}
+
+.result {
+    position: relative;
+    margin-top: 40px;
+}
+
+.result_box {
+    width: 300PX;
+    height: 100%;
+    border: 2px dashed #D9D9D9;
+    border-radius: 30px;
+    padding-top: 40px;
+}
+
+.result_box_title {
+    padding: 0px;
+    position: absolute;
+    transform:translate(-92%, -50%); 
+    background-color: white;
+    font-size: 25px;
+    font-family: "extrabold";
+}
+
+.nickname_title {
+    margin-top: 10px;
+    font-family: "extrabold";
+}
+
+.result_img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.rank {
+    background-color: #EFEFEF;
+    border: none;
+    width: 180px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-family: "bold";
+}
+
+.return_button {
+    background-color: #FDFFC2;
+    border: none;
+    border-radius: 20px;
+    width: 250PX;
+    height: 50px;
+    cursor: pointer;
+    font-family: "bold";
+}
+
+.result_share {
+    margin-top: 40px;
+}
+
+.result_btn_box {
+    display: table-caption;
 }

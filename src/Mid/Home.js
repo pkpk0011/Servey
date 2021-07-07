@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Home.css';
 import KakaoShareButton from '../KakaoShareButton';
 import homeImg from '../Img/homeImg.png';
 
 
 function Home (props) {
-    const [client, setClient] = useState();
+    const [client, setClient] = useState("");
      function onChange(e){
          setClient(e.target.value);
     }
     console.log(client)
-function pushNickname () {
-    props.history.push('/test',client);
-}
+    function pushNickname () {
+        props.history.push('/test', client);
+    }
 
     return (
         <div className="home_area">
@@ -31,11 +30,10 @@ function pushNickname () {
                 <input type="text" value={client} className="nickname" onChange={onChange} placeholder="[참여 닉네임]" />
             </div>
             <div>
-                <Link to="/test">
+            
                     <button type="button" onClick = {pushNickname} className="btn_start">
                         START
                     </button>
-                </Link>
             </div>
             <div className="client_text">
                 참여자 수
