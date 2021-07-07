@@ -94,10 +94,11 @@ button {
 
 .statusBar_Num {
     flex: 1;
+    padding-top: 4px;
     margin-left: 10px;
     font-size: 15px;
     font-weight: 500;
-    padding-bottom: 5px;
+    font-family: "bold";
 }
 
 .statusBar {
