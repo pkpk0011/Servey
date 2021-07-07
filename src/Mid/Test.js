@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import axios from "axios";
 import './Test.css';
 
 function Test (props) {
 
     const [Page, setPage] = useState(1);
     const [Value, setValue] = useState(30);
-    const [quiz_list, setQuiz_list] = useState([]);
 
     const [clientResult, setClientResult] = useState({
         nickname: props.location.state,
