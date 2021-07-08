@@ -15,25 +15,25 @@ import { useState, useEffect } from 'react';
 
 function Result (props) {
     
-    const loading_array = [loading1, loading2, loading3, loading4];
-    const [loadingImg, setLoadingImg] = useState([]);
+    const loadingArray = [loading1, loading2, loading3, loading4];
+    const [loadingImg, setLoadingImg] = useState();
     const [loading, setLoading] = useState(props.location.state);
-    
+
     useEffect(() => {
-        setLoadingImg([<img src = {loading_array[0]} alt ="loading" />])
+        setLoadingImg([<img src = {loadingArray[0]} alt ="loading" />])
         setTimeout(() => {
-            setLoadingImg([<img src = {loading_array[1]} alt ="loading" />]);
+            setLoadingImg([<img src = {loadingArray[1]} alt ="loading" />]);
         }, 1000);
         setTimeout(() => {
-            setLoadingImg([<img src = {loading_array[2]} alt ="loading" />]);
+            setLoadingImg([<img src = {loadingArray[2]} alt ="loading" />]);
         }, 2000);
         setTimeout(() => {
-            setLoadingImg([<img src = {loading_array[3]} alt ="loading" />]);
+            setLoadingImg([<img src = {loadingArray[3]} alt ="loading" />]);
         }, 3000);
         setTimeout(() => {
             setLoading();
         }, 4000);
-    }, [loading_array[0], loading_array[1], loading_array[2], loading_array[3]])
+    }, [])
     
     console.log(props)
     let result = props.location.state;
@@ -71,7 +71,7 @@ function Result (props) {
         <div className="Result_area">
             {loading ? (
             <div className="loading">
-                {loadingImg[0]}
+                {loadingImg}
             </div>
             ) : (
                 <>
