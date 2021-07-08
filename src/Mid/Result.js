@@ -6,13 +6,41 @@ import paresseux from '../Img/paresseux.png';
 import puppy from '../Img/puppy.jpg';
 import squirrel from '../Img/squirrel.png';
 import sunfish from '../Img/sunfish.png';
+import loading1 from '../Img/loading1.png';
+import loading2 from '../Img/loading2.png';
+import loading3 from '../Img/loading3.png';
+import loading4 from '../Img/loading4.png';
 import KakaoShareButton from '../KakaoShareButton';
+import { useState, useEffect } from 'react';
 
 function Result (props) {
+    
+    const loading_array = [loading1, loading2, loading3, loading4];
+    const [loadingImg, setLoadingImg] = useState([]);
+    const [loading, setLoading] = useState(props.location.state);
 
+    useEffect(() => {
+        setLoadingImg([<img src = {loading_array[0]} alt ="loading" />])
+            setTimeout(() => {
+                console.log("Sdsdsa")
+                setLoadingImg([<img src = {loading_array[1]} alt ="loading" />]);
+            }, 1000);
+            setTimeout(() => {
+                console.log("Sdsdsa")
+                setLoadingImg([<img src = {loading_array[2]} alt ="loading" />]);
+            }, 2000);
+            setTimeout(() => {
+                console.log("Sdsdsa")
+                setLoadingImg([<img src = {loading_array[3]} alt ="loading" />]);
+            }, 3000);
+        setTimeout(() => {
+            setLoading();
+        }, 4000);
+    }, [])
+    
     console.log(props)
     let result = props.location.state;
-
+    
     const result_array = [result.crow,
         result.dungbeetle,
         result.meerkat,
@@ -21,7 +49,7 @@ function Result (props) {
         result.squirrel,
         result.sunfish,
     ]
-
+    
     const resultImg = [
         { name: "crow", value: result.crow }, 
         { name: "dungbeetle", value: result.dungbeetle },
@@ -30,20 +58,32 @@ function Result (props) {
         { name: "puppy", value: result.puppy },
         { name: "squirrel", value: result.squirrel },
         { name: "sunfish", value: result.sunfish }
-        ];
-
+    ];
+    
     var sortingField = "value";
     
     const ImgName = resultImg.sort(function(a, b) { // 내림차순
         return b[sortingField] - a[sortingField];
     });
-
+    
     const Img_array = [crow, dungbeetle, meerkat, paresseux, puppy, squirrel, sunfish];
-
+    
     // console.log(result_array.indexOf(ImgName[0].value));
 
+
+
+    console.log(loading)
+
+    console.log(loadingImg)
+    
     return (
         <div className="Result_area">
+            {loading ? (
+            <div className="loading">
+                {loadingImg[0]}
+            </div>
+            ) : (
+                <>
             <div className="result">
                 <span className="result_box_title">투자고수 테스트</span>
                 <div className="result_box">
@@ -69,8 +109,10 @@ function Result (props) {
                 </a>
             </div>
             </div>
-        </div>
-    )
+            </>
+            ) }  
+        </div>  
+    ) 
 }
 
 export default Result;

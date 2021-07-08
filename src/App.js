@@ -9,10 +9,8 @@ import Home from './Mid/Home';
 import Test from './Mid/Test';
 import Result from './Mid/Result';
 
-
-
 function App() {
-  
+
   return (
     <div className="App">
       <Router>

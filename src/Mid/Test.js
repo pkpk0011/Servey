@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './Test.css';
 
 function Test (props) {
@@ -15,6 +15,7 @@ function Test (props) {
         squirrel: 0,
         puppy: 0
         });
+
     const [back1, setBack1] = useState();
     const [back2, setBack2] = useState();
     const [back3, setBack3] = useState();
