@@ -12,6 +12,7 @@ import loading3 from '../Img/loading3.png';
 import loading4 from '../Img/loading4.png';
 import KakaoShareButton from '../KakaoShareButton';
 import { useState, useEffect } from 'react';
+import { data } from 'browserslist';
 
 function Result (props) {
     
@@ -38,7 +39,7 @@ function Result (props) {
         setTimeout(() => {
             setLoading();
         }, 4000);
-    }, [])
+    }, [data])
     
     console.log(props)
     let result = props.location.state;
