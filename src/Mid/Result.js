@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Result.css';
-import crow from '../Img/crow.png';
+import crow from '../Img/levelcrow.png';
 import dungbeetle from '../Img/leveldungbeetle.png';
 import meerkat from '../Img/levelmeerkat.png';
 import paresseux from '../Img/levelparesseux.png';
