@@ -11,6 +11,11 @@ import loading1 from '../Img/loading1.png';
 import loading2 from '../Img/loading2.png';
 import loading3 from '../Img/loading3.png';
 import loading4 from '../Img/loading4.png';
+import loading5 from '../Img/loading5.png';
+import loading6 from '../Img/loading6.png';
+import loading7 from '../Img/loading7.png';
+import loading8 from '../Img/loading8.png';
+import loading9 from '../Img/loading9.png';
 import shareMethod from '../Img/shareMethod.png';
 import KakaoShareButton from '../KakaoShareButton';
 import Link from '../Img/Link.png';
@@ -26,16 +31,31 @@ function Result (props) {
         setLoadingImg(state => state+1);
         setTimeout(() => {
             setLoadingImg(state => state+1);
+        }, 500);
+        setTimeout(() => {
+            setLoadingImg(state => state+1);
         }, 1000);
+        setTimeout(() => {
+            setLoadingImg(state => state+1);
+        }, 1500);
         setTimeout(() => {
             setLoadingImg(state => state+1);
         }, 2000);
         setTimeout(() => {
             setLoadingImg(state => state+1);
+        }, 2500);
+        setTimeout(() => {
+            setLoadingImg(state => state+1);
         }, 3000);
         setTimeout(() => {
-            setLoading();
+            setLoadingImg(state => state+1);
+        }, 3500);
+        setTimeout(() => {
+            setLoadingImg(state => state+1);
         }, 4000);
+        setTimeout(() => {
+            setLoading();
+        }, 4500);
     }, []);
     
     console.log(props)
@@ -96,7 +116,17 @@ function Result (props) {
                     :
                     loadingImg === 3 ? <img src={loading3} alt ="loading" />
                     :
-                    <img src={loading4} alt ="loading" />
+                    loadingImg === 4 ? <img src={loading4} alt ="loading" />
+                    :
+                    loadingImg === 5 ? <img src={loading5} alt ="loading" />
+                    :
+                    loadingImg === 6 ? <img src={loading6} alt ="loading" />
+                    :
+                    loadingImg === 7 ? <img src={loading7} alt ="loading" />
+                    :
+                    loadingImg === 8 ? <img src={loading8} alt ="loading" />
+                    :
+                    <img src={loading9} alt ="loading" />
             }
             </div>
             ) : (
