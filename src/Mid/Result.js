@@ -15,22 +15,25 @@ import { useState, useEffect } from 'react';
 
 function Result (props) {
     
-    const [loadingArray, setLoadingArray] = useState([loading1, loading2, loading3, loading4]);
     const [loadingImg, setLoadingImg] = useState();
+
+    const loadingImg1 = <img src = {loading1} alt ="loading" />;
+    const loadingImg2 = <img src = {loading2} alt ="loading" />;
+    const loadingImg3 = <img src = {loading3} alt ="loading" />;
+    const loadingImg4 = <img src = {loading4} alt ="loading" />;
+
     const [loading, setLoading] = useState(props.location.state);
 
-    console.log(loadingArray)
-
     useEffect(() => {
-        setLoadingImg([<img src = {loadingArray[0]} alt ="loading" />])
+        setLoadingImg(loadingImg1);
         setTimeout(() => {
-            setLoadingImg([<img src = {loadingArray[1]} alt ="loading" />]);
+            setLoadingImg(loadingImg2);
         }, 1000);
         setTimeout(() => {
-            setLoadingImg([<img src = {loadingArray[2]} alt ="loading" />]);
+            setLoadingImg(loadingImg3);
         }, 2000);
         setTimeout(() => {
-            setLoadingImg([<img src = {loadingArray[3]} alt ="loading" />]);
+            setLoadingImg(loadingImg4);
         }, 3000);
         setTimeout(() => {
             setLoading();
@@ -40,7 +43,8 @@ function Result (props) {
     console.log(props)
     let result = props.location.state;
     
-    const result_array = [result.crow,
+    const result_array = [
+        result.crow,
         result.dungbeetle,
         result.meerkat,
         result.paresseux,
@@ -73,7 +77,9 @@ function Result (props) {
         <div className="Result_area">
             {loading ? (
             <div className="loading">
-                {loadingImg}
+                {
+                    loadingImg
+            }
             </div>
             ) : (
                 <>
