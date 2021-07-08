@@ -79,7 +79,7 @@ function Result (props) {
                     :
                     loadingImg === 3 ? <img src={loading3} alt ="loading" />
                     :
-                    <img src={loading1} alt ="loading" />
+                    <img src={loading4} alt ="loading" />
             }
             </div>
             ) : (
