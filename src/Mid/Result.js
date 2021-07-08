@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import './Result.css';
 import crow from '../Img/crow.png';
 import dungbeetle from '../Img/dungbeetle.jpg';
@@ -10,8 +11,11 @@ import loading1 from '../Img/loading1.png';
 import loading2 from '../Img/loading2.png';
 import loading3 from '../Img/loading3.png';
 import loading4 from '../Img/loading4.png';
+import rankexam from '../Img/rankexam.png';
+import shareMethod from '../Img/shareMethod.png';
 import KakaoShareButton from '../KakaoShareButton';
-import { useState, useEffect } from 'react';
+import Link from '../Img/Link.png';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 function Result (props) {
     
@@ -95,19 +99,43 @@ function Result (props) {
             </div>
             <div className="container">
             <div className="result_share">
-                <span className="share">
+                <span className="result_share_title">
                     내 결과 공유하기
                 </span>
-                <div className="sharebox">
-                    <KakaoShareButton />
+                <div className="sharebtn_box">
+                    <div className="kakaobtn">
+                        <KakaoShareButton />
+                    </div>
+                    <div className="urlbtn">
+                        <CopyToClipboard text={"https://hscandoit.co.kr" + props.match.url}>
+                        <button id="copy_url" className="btn_copyurl" style={{backgroundImage: {Link}}}>
+                            <img className="copyurl" src={Link} alt="Link-share-icon" />
+                        </button>
+                        </CopyToClipboard>
+                    </div>
                 </div>
             </div>
-            <div className="result_btn_box">
-                <button type="button" className="rank">전체 순위 보러가기</button>
-                <a href="./">
-                    <button type="button" className="return_button">다시 풀기</button>
-                </a>
+            <div className="result__box">
+                <div className="most_type">
+                    <span className="span_most_type">
+                        가장 많은 유형은?
+                    </span>
+                    <div className="div_most_type">
+                        <img src={rankexam} className = "img_most_type" alt="most_type" />
+                    </div>
+                </div>
+                <div>
+                    <button type="button" className="rank">전체 순위 보러가기</button>
+                </div>
+                <div>
+                    <a href="./">
+                        <button type="button" className="return_button">다시 테스트하기</button>
+                    </a>
+                </div>
             </div>
+                <div className="pointshare">
+                    <img src = {shareMethod} className="shareMethod" alt = "shareMethod" />
+                </div>
             </div>
             </>
             ) }  

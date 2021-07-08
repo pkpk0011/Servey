@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './Home.css';
 import KakaoShareButton from '../KakaoShareButton';
 import homeImg from '../Img/homeImg.png';
+import Link from '../Img/Link.png';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 
 function Home (props) {
@@ -47,8 +49,17 @@ function Home (props) {
                 <span className="share">
                     공유하기
                 </span>
-                <div className="sharebox">
-                    <KakaoShareButton />
+                <div className="sharebtn_box">
+                    <div className="kakaobtn">
+                        <KakaoShareButton />
+                    </div>
+                    <div className="urlbtn">
+                        <CopyToClipboard text={"https://hscandoit.co.kr" + props.match.url}>
+                        <button id="copy_url" className="btn_copyurl" style={{backgroundImage: {Link}}}>
+                            <img className="copyurl" src={Link} alt="Link-share-icon" />
+                        </button>
+                        </CopyToClipboard>
+                    </div>
                 </div>
             </div>
         </div>

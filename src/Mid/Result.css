@@ -22,6 +22,28 @@
     padding-top: 40px;
 }
 
+.most_type {
+    margin-top: 30px;
+}
+
+.div_most_type {
+    width: 150px;
+    border: 1px solid #D9D9D9;
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 10px
+}
+
+.span_most_type {
+    font-family: "maru";
+    font-size: 16px;
+}
+
+.img_most_type {
+    width: 80%;
+    border-radius: 30px;
+}
+
 .result_box_title {
     padding: 0px;
     position: absolute;
@@ -68,6 +90,42 @@
     margin-top: 40px;
 }
 
-.result_btn_box {
+.result_share_title {
+    font-family: "maru";
+    font-size: 16px;
+}
+
+.result__box {
     display: table-caption;
+}
+
+.sharebtn_box {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.kakaobtn {
+    margin-right: 20px;
+}
+
+.urlbtn {
+    margin-left: 20px;
+}
+
+.btn_copyurl {
+    border: none;
+    width: 40px;
+    padding: 0px;
+    background-color: white;
+    margin: 0px;
+}
+
+.copyurl {
+    width: 100%;
+    cursor: pointer;
+}
+
+.pointshare {
+    margin-top: 36px;
 }

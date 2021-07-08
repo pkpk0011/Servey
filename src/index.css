@@ -3,7 +3,12 @@
     src: url("./Font/NANUMSQUARE_0.TTF");
   }
   
-  @font-face {
+@font-face {
     font-family: "bold";
     src: url("./Font/NANUMSQUARE.TTF");
+  }
+
+  @font-face {
+    font-family: "maru";
+    src: url("./Font/MARUBURI-REGULAR.TTF");
   }

@@ -5,13 +5,13 @@
 
 #kakao-link-btn {
     background-color: white;
-    width: 50px;
+    width: 40px;
     border : none;
     padding: 0px;
     margin: 0px;
-    cursor: pointer;
 }
 
 .kakao {
+    cursor: pointer;
     width: 100%;
 }
