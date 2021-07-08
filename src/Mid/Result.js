@@ -33,7 +33,7 @@ function Result (props) {
         setTimeout(() => {
             setLoading();
         }, 4000);
-    }, [])
+    }, [loading_array[0], loading_array[1], loading_array[2], loading_array[3]])
     
     console.log(props)
     let result = props.location.state;
@@ -67,12 +67,6 @@ function Result (props) {
     
     // console.log(result_array.indexOf(ImgName[0].value));
 
-
-
-    console.log(loading)
-
-    console.log(loadingImg)
-    
     return (
         <div className="Result_area">
             {loading ? (
