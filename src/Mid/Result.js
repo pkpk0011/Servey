@@ -18,25 +18,25 @@ function Result (props) {
     const loading_array = [loading1, loading2, loading3, loading4];
     const [loadingImg, setLoadingImg] = useState([]);
     const [loading, setLoading] = useState(props.location.state);
-
+    
     useEffect(() => {
         setLoadingImg([<img src = {loading_array[0]} alt ="loading" />])
-            setTimeout(() => {
-                console.log("Sdsdsa")
-                setLoadingImg([<img src = {loading_array[1]} alt ="loading" />]);
-            }, 1000);
-            setTimeout(() => {
-                console.log("Sdsdsa")
-                setLoadingImg([<img src = {loading_array[2]} alt ="loading" />]);
-            }, 2000);
-            setTimeout(() => {
-                console.log("Sdsdsa")
-                setLoadingImg([<img src = {loading_array[3]} alt ="loading" />]);
-            }, 3000);
+        setTimeout(() => {
+            console.log("Sdsdsa")
+            setLoadingImg([<img src = {loading_array[1]} alt ="loading" />]);
+        }, 1000);
+        setTimeout(() => {
+            console.log("Sdsdsa")
+            setLoadingImg([<img src = {loading_array[2]} alt ="loading" />]);
+        }, 2000);
+        setTimeout(() => {
+            console.log("Sdsdsa")
+            setLoadingImg([<img src = {loading_array[3]} alt ="loading" />]);
+        }, 3000);
         setTimeout(() => {
             setLoading();
         }, 4000);
-    }, [])
+    }, [loading_array])
     
     console.log(props)
     let result = props.location.state;
