@@ -72,6 +72,10 @@ function Result (props) {
     
     // console.log(result_array.indexOf(ImgName[0].value));
 
+    const linkAlert = () => {
+        alert("클립보드에 복사되었습니다.")
+    }
+
     return (
         <div className="Result_area">
             {loading ? (
@@ -107,8 +111,8 @@ function Result (props) {
                         <KakaoShareButton />
                     </div>
                     <div className="urlbtn">
-                        <CopyToClipboard text={"https://hscandoit.co.kr" + props.match.url}>
-                        <button id="copy_url" className="btn_copyurl" style={{backgroundImage: {Link}}}>
+                        <CopyToClipboard text={"https://hscandoit.co.kr"}>
+                        <button id="copy_url" className="btn_copyurl" style={{backgroundImage: {Link}}} onClick={linkAlert}>
                             <img className="copyurl" src={Link} alt="Link-share-icon" />
                         </button>
                         </CopyToClipboard>
