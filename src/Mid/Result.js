@@ -17,27 +17,29 @@ function Result (props) {
     
     const [loadingImg, setLoadingImg] = useState();
 
-    const loadingImg1 = <img src = {loading1} alt ="loading" />;
-    const loadingImg2 = <img src = {loading2} alt ="loading" />;
-    const loadingImg3 = <img src = {loading3} alt ="loading" />;
-    const loadingImg4 = <img src = {loading4} alt ="loading" />;
+    const loadingImgArray = [loading1, loading2, loading3, loading4];
 
     const [loading, setLoading] = useState(props.location.state);
 
     useEffect(() => {
-        setLoadingImg(loadingImg1);
+        // setLoadingImg(loadingImg1);
+        // setTimeout(() => {
+        //     setLoadingImg(loadingImg2);
+        // }, 1000);
+        // setTimeout(() => {
+        //     setLoadingImg(loadingImg3);
+        // }, 2000);
+        // setTimeout(() => {
+        //     setLoadingImg(loadingImg4);
+        // }, 3000);
         setTimeout(() => {
-            setLoadingImg(loadingImg2);
-        }, 1000)
-        setTimeout(() => {
-            setLoadingImg(loadingImg3);
-        }, 2000)
-        setTimeout(() => {
-            setLoadingImg(loadingImg4);
-        }, 3000)
+            for (var i = 0; i < 4; i++) {
+                setLoadingImg(<img src = {loadingImgArray[i]} alt ="loading" />);
+            }
+        }, 2000);
         setTimeout(() => {
             setLoading();
-        }, 4000)
+        }, 4000);
     }, []);
     
     console.log(props)
