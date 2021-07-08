@@ -31,31 +31,31 @@ function Result (props) {
         setLoadingImg(state => state+1);
         setTimeout(() => {
             setLoadingImg(state => state+1);
-        }, 500);
+        }, 300);
         setTimeout(() => {
             setLoadingImg(state => state+1);
-        }, 1000);
+        }, 700);
         setTimeout(() => {
             setLoadingImg(state => state+1);
-        }, 1500);
+        }, 1200);
         setTimeout(() => {
             setLoadingImg(state => state+1);
-        }, 2000);
+        }, 1800);
         setTimeout(() => {
             setLoadingImg(state => state+1);
         }, 2500);
         setTimeout(() => {
             setLoadingImg(state => state+1);
-        }, 3000);
-        setTimeout(() => {
-            setLoadingImg(state => state+1);
-        }, 3500);
+        }, 3200);
         setTimeout(() => {
             setLoadingImg(state => state+1);
         }, 4000);
         setTimeout(() => {
+            setLoadingImg(state => state+1);
+        }, 4800);
+        setTimeout(() => {
             setLoading();
-        }, 4500);
+        }, 5600);
     }, []);
     
     console.log(props)
