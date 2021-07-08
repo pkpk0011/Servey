@@ -11,34 +11,28 @@ import loading2 from '../Img/loading2.png';
 import loading3 from '../Img/loading3.png';
 import loading4 from '../Img/loading4.png';
 import KakaoShareButton from '../KakaoShareButton';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 function Result (props) {
     
-    const [loadingImg, setLoadingImg] = useState();
-
-    const loadingImgArray = [loading1, loading2, loading3, loading4];
+    const [loadingImg, setLoadingImg] = useState(0);
 
     const [loading, setLoading] = useState(props.location.state);
 
-    const loadingpage = useCallback(() => {
-        setLoadingImg(<img src={loadingImgArray[0]} alt ="loading" />);
+    useEffect(() => {
+        setLoadingImg(state => state+1);
         setTimeout(() => {
-            setLoadingImg(<img src={loadingImgArray[1]} alt ="loading" />);
+            setLoadingImg(state => state+1);
         }, 1000);
         setTimeout(() => {
-            setLoadingImg(<img src={loadingImgArray[2]} alt ="loading" />);
+            setLoadingImg(state => state+1);
         }, 2000);
         setTimeout(() => {
-            setLoadingImg(<img src={loadingImgArray[3]} alt ="loading" />);
+            setLoadingImg(state => state+1);
         }, 3000);
         setTimeout(() => {
             setLoading();
         }, 4000);
-    }, [loadingImgArray]);
-
-    useEffect(() => {
-        loadingpage();
     }, []);
     
     console.log(props)
@@ -65,7 +59,7 @@ function Result (props) {
     ];
     
     var sortingField = "value";
-    
+
     const ImgName = resultImg.sort(function(a, b) { // 내림차순
         return b[sortingField] - a[sortingField];
     });
@@ -79,7 +73,13 @@ function Result (props) {
             {loading ? (
             <div className="loading">
                 {
-                    loadingImg
+                    loadingImg === 1 ? <img src={loading1} alt ="loading" />
+                    : 
+                    loadingImg === 2 ? <img src={loading2} alt ="loading" />
+                    :
+                    loadingImg === 3 ? <img src={loading3} alt ="loading" />
+                    :
+                    <img src={loading1} alt ="loading" />
             }
             </div>
             ) : (
