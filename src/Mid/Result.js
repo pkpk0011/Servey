@@ -12,7 +12,6 @@ import loading3 from '../Img/loading3.png';
 import loading4 from '../Img/loading4.png';
 import KakaoShareButton from '../KakaoShareButton';
 import { useState, useEffect } from 'react';
-import { data } from 'browserslist';
 
 function Result (props) {
     
@@ -29,17 +28,17 @@ function Result (props) {
         setLoadingImg(loadingImg1);
         setTimeout(() => {
             setLoadingImg(loadingImg2);
-        }, 1000);
+        }, 1000)
         setTimeout(() => {
             setLoadingImg(loadingImg3);
-        }, 2000);
+        }, 2000)
         setTimeout(() => {
             setLoadingImg(loadingImg4);
-        }, 3000);
+        }, 3000)
         setTimeout(() => {
             setLoading();
-        }, 4000);
-    }, [data])
+        }, 4000)
+    }, []);
     
     console.log(props)
     let result = props.location.state;
