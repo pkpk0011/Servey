@@ -15,9 +15,11 @@ import { useState, useEffect } from 'react';
 
 function Result (props) {
     
-    const loadingArray = [loading1, loading2, loading3, loading4];
+    const [loadingArray, setLoadingArray] = useState([loading1, loading2, loading3, loading4]);
     const [loadingImg, setLoadingImg] = useState();
     const [loading, setLoading] = useState(props.location.state);
+
+    console.log(loadingArray)
 
     useEffect(() => {
         setLoadingImg([<img src = {loadingArray[0]} alt ="loading" />])
