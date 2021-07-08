@@ -11,7 +11,7 @@ import loading2 from '../Img/loading2.png';
 import loading3 from '../Img/loading3.png';
 import loading4 from '../Img/loading4.png';
 import KakaoShareButton from '../KakaoShareButton';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 function Result (props) {
     
@@ -21,7 +21,7 @@ function Result (props) {
 
     const [loading, setLoading] = useState(props.location.state);
 
-    const loadingpage = () => {
+    const loadingpage = useCallback(() => {
         setLoadingImg(<img src={loadingImgArray[0]} alt ="loading" />);
         setTimeout(() => {
             setLoadingImg(<img src={loadingImgArray[1]} alt ="loading" />);
@@ -35,7 +35,7 @@ function Result (props) {
         setTimeout(() => {
             setLoading();
         }, 4000);
-    }
+    }, [loadingImgArray]);
 
     useEffect(() => {
         loadingpage();
