@@ -22,21 +22,18 @@ function Result (props) {
     useEffect(() => {
         setLoadingImg([<img src = {loading_array[0]} alt ="loading" />])
         setTimeout(() => {
-            console.log("Sdsdsa")
             setLoadingImg([<img src = {loading_array[1]} alt ="loading" />]);
         }, 1000);
         setTimeout(() => {
-            console.log("Sdsdsa")
             setLoadingImg([<img src = {loading_array[2]} alt ="loading" />]);
         }, 2000);
         setTimeout(() => {
-            console.log("Sdsdsa")
             setLoadingImg([<img src = {loading_array[3]} alt ="loading" />]);
         }, 3000);
         setTimeout(() => {
             setLoading();
         }, 4000);
-    }, [loading_array])
+    }, [])
     
     console.log(props)
     let result = props.location.state;
