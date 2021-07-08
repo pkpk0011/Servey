@@ -14,6 +14,16 @@
     margin-top: 40px;
 }
 
+.sentence {
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.result_sentence {
+    font-family: "maru";
+    font-size: 15px;
+}
+
 .result_box {
     width: 300PX;
     height: 100%;

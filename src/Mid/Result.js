@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import './Result.css';
 import crow from '../Img/crow.png';
-import dungbeetle from '../Img/dungbeetle.jpg';
-import meerkat from '../Img/meerkat.png';
-import paresseux from '../Img/paresseux.png';
-import puppy from '../Img/puppy.jpg';
-import squirrel from '../Img/squirrel.png';
-import sunfish from '../Img/sunfish.png';
+import dungbeetle from '../Img/leveldungbeetle.png';
+import meerkat from '../Img/levelmeerkat.png';
+import paresseux from '../Img/levelparesseux.png';
+import puppy from '../Img/levelpuppy.png';
+import squirrel from '../Img/levelsquirrel.png';
+import sunfish from '../Img/levelsunfish.png';
 import loading1 from '../Img/loading1.png';
 import loading2 from '../Img/loading2.png';
 import loading3 from '../Img/loading3.png';
@@ -50,6 +50,16 @@ function Result (props) {
         result.puppy,
         result.squirrel,
         result.sunfish,
+    ]
+
+    const result_sentence = [
+        <span className="result_sentence">까마귀가 반짝이는 것을 골라내듯<br />알짜배기 종목만 쏙쏙 찾아내는 능력을 지녔다<br />부러운 능력이다.</span>,
+        <span className="result_sentence">티끌모아 큰 O을 꿈꾸며<br />상대적으로 안정적인 투자를 실현한다</span>,
+        <span className="result_sentence">뭐? 이번엔 그게 떡상이라고?!<br />팔랑귀를 지녔다.<br />하지만 이미 주변 친구도 미어캣형일 가능성이 높다.<br />조금 신중해질 필요가 있다</span>,
+        <span className="result_sentence">어떤 생각을 하고 있는지 알 수 없다.<br />투자에 성공을 하든 실패를 하든 평정심을 잃지 않는다.<br />사실 투자에 관심이 있는지도 알 수 없…</span>,
+        <span className="result_sentence">오를 것이란 기대와 망하지 않을 것이란 믿음.<br />어느쪽이든 희망차다.<br />관망하는 경향이 있기 때문에<br />자연스레 이어진 장기투자가 좋은 결과로 이어지기도</span>,
+        <span className="result_sentence">겨우내 먹이를 비축하듯<br />이것저것 사모으는 경향이 있다.<br />분산투자는 칭찬할만 하다</span>,
+        <span className="result_sentence">각종 스트레스로 인해 단명할 위험이 높다.<br />안전한 은행과 함께하자</span>
     ]
     
     const resultImg = [
@@ -99,6 +109,12 @@ function Result (props) {
                         {result.nickname} 님은
                     </span>
                     <img src= {Img_array[result_array.indexOf(ImgName[0].value)]} className="result_img" alt="result_img" />
+                    <div>
+                        나와 같은 유형 38%
+                    </div>
+                    <div className="sentence">
+                        {result_sentence[result_array.indexOf(ImgName[0].value)]}
+                    </div>
                 </div>
             </div>
             <div className="container">
