@@ -11,7 +11,6 @@ import loading1 from '../Img/loading1.png';
 import loading2 from '../Img/loading2.png';
 import loading3 from '../Img/loading3.png';
 import loading4 from '../Img/loading4.png';
-import rankexam from '../Img/rankexam.png';
 import shareMethod from '../Img/shareMethod.png';
 import KakaoShareButton from '../KakaoShareButton';
 import Link from '../Img/Link.png';
@@ -141,7 +140,7 @@ function Result (props) {
                         가장 많은 유형은?
                     </span>
                     <div className="div_most_type">
-                        <img src={rankexam} className = "img_most_type" alt="most_type" />
+                        <img src={puppy} className = "img_most_type" alt="most_type" />
                     </div>
                 </div>
                 <div>
