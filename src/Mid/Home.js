@@ -1,18 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Home.css';
 import KakaoShareButton from '../KakaoShareButton';
 import homeImg from '../Img/homeImg.png';
 import Link from '../Img/Link.png';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-
+import axios from 'axios';
 
 function Home (props) {
     const [client, setClient] = useState("");
+    const [clientTotal, setClientTotal] = useState();
      function onChange(e){
          setClient(e.target.value);
     }
+
+    useEffect(() => {
+        axios.post('http://localhost:3001/total', {
+            }).then(function (res) {
+                setClientTotal(res.data.clientTotal);
+            }).catch(function (error) {
+                console.log(error);
+            })
+    }, [])
     
     function pushNickname () {
+    
         props.history.push('/test', client);
     }
 
@@ -46,7 +57,7 @@ function Home (props) {
             </div>
             <div className="div_participant">
                 <span className="span_participant">
-                    1,100,200
+                    {clientTotal}
                 </span>
             </div>
             <div className="div_share">

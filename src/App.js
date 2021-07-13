@@ -8,6 +8,7 @@ import Top from './Top/Top';
 import Home from './Mid/Home';
 import Test from './Mid/Test';
 import Result from './Mid/Result';
+import Rank from './Mid/Rank';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/test" component={Test} />
             <Route path="/result" component={Result} />
+            <Route path="/rank" component={Rank} />
           </Switch>
       </Router>
     </div>
