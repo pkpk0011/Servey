@@ -1,0 +1,53 @@
+.Rank_area {
+    max-width: 600px;
+}
+
+.realTimeRank {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #D9D9D9;
+    border-radius: 30px;
+    height: 130px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.realRanking {
+    flex: 1;
+}
+
+.spanRanking {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.realPer {
+    flex: 1.5;
+    display: grid;
+}
+
+.percent {
+    background-color: #00ffaa;
+    border: 2px solid #78cad0;
+    width: 60px;
+    border-radius: 12px;
+    color: white;
+    height: 25px;
+}
+
+.spanPer {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0px;
+}
+
+.realImg {
+    flex: 2;
+}
+
+.rank_Img {
+    border-radius: 100px;
+    height: 120px;
+}

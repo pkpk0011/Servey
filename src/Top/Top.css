@@ -4,6 +4,7 @@
     width: 100%;
     text-align: left;
     margin-bottom: 30px;
+    max-width: 600px;
 }
 
 .logo {

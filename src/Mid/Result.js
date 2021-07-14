@@ -25,7 +25,7 @@ import squirrel_text from '../Img/squirrel_text.png';
 import sunfish_text from '../Img/sunfish_text.png';
 import shareMethod from '../Img/shareMethod.png';
 import KakaoShareButton from '../KakaoShareButton';
-import Link from '../Img/Link.png';
+import copyLink from '../Img/copyLink.png';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import axios from 'axios';
 
@@ -35,21 +35,84 @@ function Result (props) {
     
     const [loading, setLoading] = useState(props.location.state);
 
-    const [resultCount, setResultCount] = useState();
+
+    const [topType, setTopType] = useState();
+    
+    const [totalLength, setTotalLength] = useState();
+    
+    let result = props.location.state;
+    
+    const result_array = [
+        result.crow,
+        result.dungbeetle,
+        result.meerkat,
+        result.paresseux,
+        result.puppy,
+        result.squirrel,
+        result.sunfish,
+    ]
+    
+    const result_name = [
+        "crow",
+        "dungbeetle",
+        "meerkat",
+        "paresseux",
+        "puppy",
+        "squirrel",
+        "sunfish",
+    ]
+    
+    const result_sentence = [
+        crow_text,
+        dungbeetle_text,
+        meerkat_text,
+        paresseux_text,
+        puppy_text,
+        squirrel_text,
+        sunfish_text
+    ]
+    
+    const resultImg = [
+        { name: "crow", value: result.crow }, 
+        { name: "dungbeetle", value: result.dungbeetle },
+        { name: "meerkat", value: result.meerkat },
+        { name: "paresseux", value: result.paresseux },
+        { name: "puppy", value: result.puppy },
+        { name: "squirrel", value: result.squirrel },
+        { name: "sunfish", value: result.sunfish }
+    ];
+    
+    var sortingField = "value";
+    
+    const ImgName = resultImg.sort(function(a, b) { // 내림차순
+        return b[sortingField] - a[sortingField];
+    });
+    
+    const Img_array = [levelcrow, leveldungbeetle, levelmeerkat, levelparesseux, levelpuppy, levelsquirrel, levelsunfish];
+    
+    let usernickname = props.location.state.nickname;
+    let resultname = result_name[result_array.indexOf(ImgName[0].value)];
+    let usertype = result_name[result_array.indexOf(ImgName[0].value)];
 
     useEffect(() => {
         setLoadingImg(state => state+1);
         axios.post('http://localhost:3001/create', {
-            user_nickname: props.location.state.nickname,
-            user_result: result_name[result_array.indexOf(ImgName[0].value)]
-            }).then(function () {
+            user_nickname: usernickname,
+            user_result: resultname
+        }).then(function () {
             }).catch(function (error) {
+                console.log(error);
+            })
+            axios.post('http://localhost:3001/orderby', {
+            }).then(function(res) {
+                setTopType(res.data.topType);
+            }).catch(function (error){
                 console.log(error);
             })
 
             setTimeout(() => {
                 axios.post('http://localhost:3001/update', {
-                    type: result_name[result_array.indexOf(ImgName[0].value)]
+                    type: usertype
                     }).then(function () {
                     }).catch(function (error) {
                         console.log(error);
@@ -57,6 +120,12 @@ function Result (props) {
                 setLoadingImg(state => state+1);
         }, 300);
         setTimeout(() => {
+            axios.post('http://localhost:3001/total', {
+            }).then(function (res) {
+                setTotalLength(res.data.clientTotal);
+            }).catch(function (error) {
+                console.log(error);
+            })
             setLoadingImg(state => state+1);
         }, 700);
         setTimeout(() => {
@@ -80,76 +149,21 @@ function Result (props) {
         setTimeout(() => {
             setLoading();
         }, 5600);
-    }, []);
+    }, [resultname, usernickname, usertype]);
 
 
 
     
     console.log(props)
-    let result = props.location.state;
-    
-    const result_array = [
-        result.crow,
-        result.dungbeetle,
-        result.meerkat,
-        result.paresseux,
-        result.puppy,
-        result.squirrel,
-        result.sunfish,
-    ]
-
-    const result_name = [
-        "crow",
-        "dungbeetle",
-        "meerkat",
-        "paresseux",
-        "puppy",
-        "squirrel",
-        "sunfish",
-    ]
-
-    const result_sentence = [
-        crow_text,
-        dungbeetle_text,
-        meerkat_text,
-        paresseux_text,
-        puppy_text,
-        squirrel_text,
-        sunfish_text
-    ]
-    
-    const resultImg = [
-        { name: "crow", value: result.crow }, 
-        { name: "dungbeetle", value: result.dungbeetle },
-        { name: "meerkat", value: result.meerkat },
-        { name: "paresseux", value: result.paresseux },
-        { name: "puppy", value: result.puppy },
-        { name: "squirrel", value: result.squirrel },
-        { name: "sunfish", value: result.sunfish }
-    ];
-    
-    var sortingField = "value";
-
-    const ImgName = resultImg.sort(function(a, b) { // 내림차순
-        return b[sortingField] - a[sortingField];
-    });
-    
-    const Img_array = [levelcrow, leveldungbeetle, levelmeerkat, levelparesseux, levelpuppy, levelsquirrel, levelsunfish];
     
     // console.log(result_array.indexOf(ImgName[0].value));
 
     const linkAlert = () => {
         alert("클립보드에 복사되었습니다.")
     }
-
+    
     const totalRank = () => {
-        axios.post('http://localhost:3001/rank', {
-            }).then(function (res) {
-                setResultCount(res.data.resultcount);
-            }).catch(function (error) {
-                console.log(error);
-            })
-            props.history.push('/rank', resultCount);
+        props.history.push("/rank", [topType, totalLength]);
     }
 
     return (
@@ -185,7 +199,7 @@ function Result (props) {
                         {result.nickname} 님은
                     </span>
                     <img src= {Img_array[result_array.indexOf(ImgName[0].value)]} className="result_img" alt="result_img" />
-                    <div class="type_per">
+                    <div className="type_per">
                         나와 같은 유형 38%
                     </div>
                     <div className="sentence">
@@ -204,8 +218,8 @@ function Result (props) {
                     </div>
                     <div className="urlbtn">
                         <CopyToClipboard text={"https://hscandoit.co.kr"}>
-                        <button id="copy_url" className="btn_copyurl" style={{backgroundImage: {Link}}} onClick={linkAlert}>
-                            <img className="copyurl" src={Link} alt="Link-share-icon" />
+                        <button id="copy_url" className="btn_copyurl" style={{backgroundImage: {copyLink}}} onClick={linkAlert}>
+                            <img className="copyurl" src={copyLink} alt="Link-share-icon" />
                         </button>
                         </CopyToClipboard>
                     </div>
@@ -217,7 +231,7 @@ function Result (props) {
                         가장 많은 유형은?
                     </span>
                     <div className="div_most_type">
-                        <img src={levelpuppy} className = "img_most_type" alt="most_type" />
+                        <img src={require(`../Img/level${topType[0].type}.png`).default} className = "img_most_type" alt="most_type" />
                     </div>
                 </div>
                 <div>

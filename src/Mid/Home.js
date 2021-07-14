@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Home.css';
 import KakaoShareButton from '../KakaoShareButton';
 import homeImg from '../Img/homeImg.png';
-import Link from '../Img/Link.png';
+import copyLink from '../Img/copyLink.png';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import axios from 'axios';
 
@@ -70,8 +70,8 @@ function Home (props) {
                     </div>
                     <div className="urlbtn">
                         <CopyToClipboard text={"https://hscandoit.co.kr"}>
-                        <button id="copy_url" className="btn_copyurl" style={{backgroundImage: {Link}}} onClick={linkAlert}>
-                            <img className="copyurl" src={Link} alt="Link-share-icon" />
+                        <button id="copy_url" className="btn_copyurl" style={{backgroundImage: {copyLink}}} onClick={linkAlert}>
+                            <img className="copyurl" src={copyLink} alt="Link-share-icon" />
                         </button>
                         </CopyToClipboard>
                     </div>
