@@ -97,7 +97,7 @@ function Result (props) {
 
     useEffect(() => {
         setLoadingImg(state => state+1);
-        axios.get('https://backend-survey.herokuapp.com/create', {
+        axios.post('https://backend-survey.herokuapp.com/create', {
             user_nickname: usernickname,
             user_result: resultname
         }).then(function () {
@@ -112,7 +112,7 @@ function Result (props) {
             })
 
             setTimeout(() => {
-                axios.get('https://backend-survey.herokuapp.com/update', {
+                axios.post('https://backend-survey.herokuapp.com/update', {
                     type: usertype
                     }).then(function () {
                     }).catch(function (error) {
