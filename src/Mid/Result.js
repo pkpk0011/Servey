@@ -104,22 +104,25 @@ function Result (props) {
             }).catch(function (error) {
                 console.log(error);
             })
+            
+            setTimeout(() => {
+                axios.post('https://backend-survey.herokuapp.com/update', {
+                    type: usertype
+                }).then(function () {
+                }).catch(function (error) {
+                    console.log(error);
+                })
+                setLoadingImg(state => state+1);
+            }, 300);
+            setTimeout(() => {
             axios.get('https://backend-survey.herokuapp.com/orderby', {
             }).then(function(res) {
                 setTopType(res.data.topType);
             }).catch(function (error){
                 console.log(error);
             })
-
-            setTimeout(() => {
-                axios.post('https://backend-survey.herokuapp.com/update', {
-                    type: usertype
-                    }).then(function () {
-                    }).catch(function (error) {
-                        console.log(error);
-                    })
-                setLoadingImg(state => state+1);
-        }, 300);
+            setLoadingImg(state => state+1);
+        }, 700);
         setTimeout(() => {
             axios.get('https://backend-survey.herokuapp.com/total', {
             }).then(function (res) {
@@ -127,9 +130,6 @@ function Result (props) {
             }).catch(function (error) {
                 console.log(error);
             })
-            setLoadingImg(state => state+1);
-        }, 700);
-        setTimeout(() => {
             setLoadingImg(state => state+1);
         }, 1200);
         setTimeout(() => {

@@ -1,15 +1,14 @@
 import './Top.css';
 import POINTMONSTER from '../Img/POINTMONSTER.png';
-import { Link } from 'react-router-dom';
 
 function Top() {
 
     return (
         <div className="header">
             <h1>
-                <Link to="/">
+                <a href="/">
                     <img src={POINTMONSTER} className="logo" alt="profile" />
-                </Link>
+                </a>
             </h1>
         </div>
     )
