@@ -35,6 +35,7 @@ function Result (props) {
     
     const [loading, setLoading] = useState(props.location.state);
 
+    const [rankPage, setRankPage] = useState();
 
     const [topType, setTopType] = useState();
     
@@ -96,14 +97,14 @@ function Result (props) {
 
     useEffect(() => {
         setLoadingImg(state => state+1);
-        axios.post('http://localhost:3001/create', {
+        axios.get('https://backend-survey.herokuapp.com/create', {
             user_nickname: usernickname,
             user_result: resultname
         }).then(function () {
             }).catch(function (error) {
                 console.log(error);
             })
-            axios.post('http://localhost:3001/orderby', {
+            axios.get('https://backend-survey.herokuapp.com/orderby', {
             }).then(function(res) {
                 setTopType(res.data.topType);
             }).catch(function (error){
@@ -111,7 +112,7 @@ function Result (props) {
             })
 
             setTimeout(() => {
-                axios.post('http://localhost:3001/update', {
+                axios.get('https://backend-survey.herokuapp.com/update', {
                     type: usertype
                     }).then(function () {
                     }).catch(function (error) {
@@ -120,7 +121,7 @@ function Result (props) {
                 setLoadingImg(state => state+1);
         }, 300);
         setTimeout(() => {
-            axios.post('http://localhost:3001/total', {
+            axios.get('https://backend-survey.herokuapp.com/total', {
             }).then(function (res) {
                 setTotalLength(res.data.clientTotal);
             }).catch(function (error) {
@@ -150,11 +151,6 @@ function Result (props) {
             setLoading();
         }, 5600);
     }, [resultname, usernickname, usertype]);
-
-
-
-    
-    console.log(props)
     
     // console.log(result_array.indexOf(ImgName[0].value));
 
@@ -163,7 +159,12 @@ function Result (props) {
     }
     
     const totalRank = () => {
-        props.history.push("/rank", [topType, totalLength]);
+        // props.history.push("/rank", [topType, totalLength]);
+        setRankPage(props);
+    }
+
+    const backresult = () => {
+        setRankPage();
     }
 
     return (
@@ -190,6 +191,195 @@ function Result (props) {
                     <img src={loading9} alt ="loading" />
             }
             </div>
+            ) : rankPage ? (
+                <>
+                <div className = "realTimeTitle">
+                <span className = "realTitle">
+                    실시간 순위
+                </span>
+                <button type="button" onClick={backresult}>
+                    x
+                </button>
+            </div>
+                
+                <div className="realTimeRank">
+                    <div className="realRanking">
+                        <span className="spanRanking">
+                            1위
+                        </span>
+                    </div>
+                    <div className="realPer">
+                        <div className="percent">
+                            <span className="spanPer">
+                                {parseInt(topType[0].value/totalLength*100)}%
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                유형 명칭
+                            </span>
+                        </div>
+                    </div>
+                    <div className="realImg">
+                    <img src={require(`../Img/${topType[0].type}.png`).default} className = "rank_Img" alt="rank_Img" />
+                    </div>
+                </div>
+                <div className="realTimeRank">
+                    <div className="realRanking">
+                        <span className="spanRanking">
+                            2위
+                        </span>
+                    </div>
+                    <div className="realPer">
+                        <div className="percent">
+                            <span className="spanPer">
+                                {parseInt(topType[1].value/totalLength*100)}%
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                유형 명칭
+                            </span>
+                        </div>
+                    </div>
+                    <div className="realImg">
+                    <img src={require(`../Img/${topType[1].type}.png`).default} className = "rank_Img" alt="rank_Img" />
+                    </div>
+                </div>
+                <div className="realTimeRank">
+                    <div className="realRanking">
+                        <span className="spanRanking">
+                            3위
+                        </span>
+                    </div>
+                    <div className="realPer">
+                        <div className="percent">
+                            <span className="spanPer">
+                                {parseInt(topType[2].value/totalLength*100)}%
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                유형 명칭
+                            </span>
+                        </div>
+                    </div>
+                    <div className="realImg">
+                    <img src={require(`../Img/${topType[2].type}.png`).default} className = "rank_Img" alt="rank_Img" />
+                    </div>
+                </div>
+                <div className="realTimeRank">
+                    <div className="realRanking">
+                        <span className="spanRanking">
+                            4위
+                        </span>
+                    </div>
+                    <div className="realPer">
+                        <div className="percent">
+                            <span className="spanPer">
+                                {parseInt(topType[3].value/totalLength*100)}%
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                유형 명칭
+                            </span>
+                        </div>
+                    </div>
+                    <div className="realImg">
+                    <img src={require(`../Img/${topType[3].type}.png`).default} className = "rank_Img" alt="rank_Img" />
+                    </div>
+                </div>
+                <div className="realTimeRank">
+                    <div className="realRanking">
+                        <span className="spanRanking">
+                            5위
+                        </span>
+                    </div>
+                    <div className="realPer">
+                        <div className="percent">
+                            <span className="spanPer">
+                                {parseInt(topType[4].value/totalLength*100)}%
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                유형 명칭
+                            </span>
+                        </div>
+                    </div>
+                    <div className="realImg">
+                    <img src={require(`../Img/${topType[4].type}.png`).default} className = "rank_Img" alt="rank_Img" />
+                    </div>
+                </div>
+                <div className="realTimeRank">
+                    <div className="realRanking">
+                        <span className="spanRanking">
+                            6위
+                        </span>
+                    </div>
+                    <div className="realPer">
+                        <div className="percent">
+                            <span className="spanPer">
+                                {parseInt(topType[5].value/totalLength*100)}%
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                유형 명칭
+                            </span>
+                        </div>
+                    </div>
+                    <div className="realImg">
+                    <img src={require(`../Img/${topType[5].type}.png`).default} className = "rank_Img" alt="rank_Img" />
+                    </div>
+                </div>
+                <div className="realTimeRank">
+                    <div className="realRanking">
+                        <span className="spanRanking">
+                            7위
+                        </span>
+                    </div>
+                    <div className="realPer">
+                        <div className="percent">
+                            <span className="spanPer">
+                                {parseInt(topType[6].value/totalLength*100)}%
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                유형 명칭
+                            </span>
+                        </div>
+                    </div>
+                    <div className="realImg">
+                    <img src={require(`../Img/${topType[6].type}.png`).default} className = "rank_Img" alt="rank_Img" />
+                    </div>
+                </div>
+
+                <div className="result_share">
+                <span className="result_share_title">
+                    공유하기
+                </span>
+                <div className="sharebtn_box">
+                    <div className="kakaobtn">
+                        <KakaoShareButton />
+                    </div>
+                    <div className="urlbtn">
+                        <CopyToClipboard text={"https://hscandoit.co.kr"}>
+                        <button id="copy_url" className="btn_copyurl" style={{backgroundImage: {copyLink}}} onClick={linkAlert}>
+                            <img className="copyurl" src={copyLink} alt="Link-share-icon" />
+                        </button>
+                        </CopyToClipboard>
+                    </div>
+                </div>
+
+            <div className="pointshare">
+                    <img src = {shareMethod} className="shareMethod" alt = "shareMethod" />
+                </div>
+
+            </div>
+            </>
             ) : (
                 <>
             <div className="result">

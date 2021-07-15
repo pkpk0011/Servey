@@ -14,7 +14,7 @@ function Home (props) {
     }
 
     useEffect(() => {
-        axios.post('http://localhost:3001/total', {
+        axios.get('https://backend-survey.herokuapp.com/total', {
             }).then(function (res) {
                 setClientTotal(res.data.clientTotal);
             }).catch(function (error) {

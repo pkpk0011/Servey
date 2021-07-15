@@ -3,6 +3,7 @@ import shareMethod from '../Img/shareMethod.png';
 import KakaoShareButton from '../KakaoShareButton';
 import copyLink from '../Img/copyLink.png';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { Link } from "react-router-dom";
 
 function Rank (props) {
 
@@ -18,9 +19,12 @@ function Rank (props) {
     return (
         <div className="Rank_area">
             <div className = "realTimeTitle">
+                <Link to="/result">
                 <span className = "realTitle">
                     실시간 순위
                 </span>
+                </Link>
+            </div>
                 
                 <div className="realTimeRank">
                     <div className="realRanking">
@@ -193,7 +197,6 @@ function Rank (props) {
                         </CopyToClipboard>
                     </div>
                 </div>
-            </div>
 
             <div className="pointshare">
                     <img src = {shareMethod} className="shareMethod" alt = "shareMethod" />
