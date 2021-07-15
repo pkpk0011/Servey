@@ -25,11 +25,11 @@
 }
 
 .realRanking {
-    flex: 1;
+    flex: 1.5;
 }
 
 .spanRanking {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 600;
 }
 
