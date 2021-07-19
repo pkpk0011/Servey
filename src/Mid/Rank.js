@@ -39,9 +39,9 @@ function Rank (props) {
                                 {parseInt(rankValue[0].value/clientLength*100)}%
                             </span>
                         </div>
-                        <div>
-                            <span>
-                                유형 명칭
+                        <div className="ranklevel">
+                            <span className="spanranklevel">
+                                {rankValue[0].level}
                             </span>
                         </div>
                     </div>
@@ -61,9 +61,9 @@ function Rank (props) {
                                 {parseInt(rankValue[1].value/clientLength*100)}%
                             </span>
                         </div>
-                        <div>
-                            <span>
-                                유형 명칭
+                        <div className="ranklevel">
+                            <span className="spanranklevel">
+                                {rankValue[1].level}
                             </span>
                         </div>
                     </div>
@@ -83,9 +83,9 @@ function Rank (props) {
                                 {parseInt(rankValue[2].value/clientLength*100)}%
                             </span>
                         </div>
-                        <div>
-                            <span>
-                                유형 명칭
+                        <div className="ranklevel">
+                            <span className="spanranklevel">
+                                {rankValue[2].level}
                             </span>
                         </div>
                     </div>
@@ -105,9 +105,9 @@ function Rank (props) {
                                 {parseInt(rankValue[3].value/clientLength*100)}%
                             </span>
                         </div>
-                        <div>
-                            <span>
-                                유형 명칭
+                        <div className="ranklevel">
+                            <span className="spanranklevel">
+                                {rankValue[3].level}
                             </span>
                         </div>
                     </div>
@@ -127,9 +127,9 @@ function Rank (props) {
                                 {parseInt(rankValue[4].value/clientLength*100)}%
                             </span>
                         </div>
-                        <div>
-                            <span>
-                                유형 명칭
+                        <div className="ranklevel">
+                            <span className="spanranklevel">
+                                {rankValue[4].level}
                             </span>
                         </div>
                     </div>
@@ -149,9 +149,9 @@ function Rank (props) {
                                 {parseInt(rankValue[5].value/clientLength*100)}%
                             </span>
                         </div>
-                        <div>
-                            <span>
-                                유형 명칭
+                        <div className="ranklevel">
+                            <span className="spanranklevel">
+                                {rankValue[5].level}
                             </span>
                         </div>
                     </div>
@@ -171,9 +171,9 @@ function Rank (props) {
                                 {parseInt(rankValue[6].value/clientLength*100)}%
                             </span>
                         </div>
-                        <div>
-                            <span>
-                                유형 명칭
+                        <div className="ranklevel">
+                            <span className="spanranklevel">
+                                {rankValue[6].level}
                             </span>
                         </div>
                     </div>
