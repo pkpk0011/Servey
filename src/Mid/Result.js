@@ -91,7 +91,7 @@ function Result (props) {
 
     return (
         <div className="Result_area">
-            {topType ? (
+            {topType && clientResult ? (
                 <>
                 <div className="result">
                     <span className="result_box_title">투자고수 테스트</span>

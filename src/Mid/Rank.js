@@ -4,6 +4,7 @@ import KakaoShareButton from '../KakaoShareButton';
 import copyLink from '../Img/copyLink.png';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Link } from "react-router-dom";
+import { useEffect } from 'react';
 
 function Rank (props) {
 
@@ -17,6 +18,10 @@ function Rank (props) {
     const linkAlert = () => {
         alert("클립보드에 복사되었습니다.")
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div className="Rank_area">
