@@ -850,16 +850,16 @@ function Test (props) {
                             <span className="subject2">한번 해볼까?</span>
                         </div>
                     <div className="btn_box">
-                        <Link to = {`/result${nickname}`}>
+                        <Link to = {`/result${nickname}`} className ="buttonLink1">
                             <button className = "one_btn" onClick={oneButton}>부자가 되려면 위험은 감수해야지!</button>
                         </Link>
-                        <Link to = {`/result${nickname}`}>
+                        <Link to = {`/result${nickname}`} className ="buttonLink2">
                             <button className = "two_btn" onClick={twoButton}>벌만큼 벌었다! 과유불급</button>
                         </Link>
-                        <Link to = {`/result${nickname}`}>
+                        <Link to = {`/result${nickname}`} className ="buttonLink3">
                             <button className = "three_btn" onClick={threeButton}>이미 하고 있다</button>
                         </Link>
-                        <Link to = {`/result${nickname}`}>
+                        <Link to = {`/result${nickname}`} className ="buttonLink4">
                             <button className = "four_btn"onClick={fourButton}>코인은 너무 위험한듯! 패스!</button>
                         </Link>
                     </div>

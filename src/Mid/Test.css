@@ -64,11 +64,17 @@ button {
     margin-top: 20px;
     cursor: pointer;
     font-family: "bold";
+
 }
 
 .one_btn:active, .two_btn:active, .three_btn:active, .four_btn:active {
     background-color: #FAFF67;
     -webkit-tap-highlight-color: rgb(0, 0, 0, 0);
+}
+
+.buttonLink1, .buttonLink2, .buttonLink3, .buttonLink4 {
+    display: contents;
+    text-decoration: none;
 }
 
 
