@@ -9,6 +9,8 @@ function Rank (props) {
 
     console.log(props.location.state);
 
+    const nickname = props.match.params.nickname;
+
     const rankValue = props.location.state[0];
     const clientLength = props.location.state[1];
 
@@ -19,13 +21,12 @@ function Rank (props) {
     return (
         <div className="Rank_area">
             <div className = "realTimeTitle">
-                <Link to="/result">
+                <Link to={`/result${nickname}`}>
                 <span className = "realTitle">
                     실시간 순위
                 </span>
                 </Link>
-            </div>
-                
+            </div>           
                 <div className="realTimeRank">
                     <div className="realRanking">
                         <span className="spanRanking">

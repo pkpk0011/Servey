@@ -5,6 +5,7 @@ import homeImg from '../Img/homeImg.png';
 import copyLink from '../Img/copyLink.png';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Home (props) {
     const [client, setClient] = useState("");
@@ -22,13 +23,12 @@ function Home (props) {
             })
     }, [])
     
-    function pushNickname () {
-    
-        props.history.push('/test', client);
-    }
-
     const linkAlert = () => {
         alert("클립보드에 복사되었습니다.")
+    }
+
+    const mustNickname = () => {
+        alert("닉네임을 입력해주세요!")
     }
 
     return (
@@ -47,10 +47,17 @@ function Home (props) {
                 <input type="text" value={client} className="nickname" onChange={onChange} placeholder="[참여 닉네임]" />
             </div>
             <div>
-            
-                    <button type="button" onClick = {pushNickname} className="btn_start">
+                {client ? 
+                <Link to={`/test${client}`}>
+                    <button type="button" className="btn_start">
                         START
                     </button>
+                </Link>
+                :
+                <button type="button" onClick={mustNickname} className="btn_start">
+                    START
+                </button>
+                }
             </div>
             <div className="client_text">
                 참여자 수

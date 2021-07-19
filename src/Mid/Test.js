@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import './Test.css';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Test (props) {
 
     const [Page, setPage] = useState(1);
 
+    const nickname = props.match.params.nickname;
+
     const [clientResult, setClientResult] = useState({
-        nickname: props.location.state,
         meerkat: 0,
         sunfish: 0,
         crow: 0,
@@ -15,6 +18,38 @@ function Test (props) {
         squirrel: 0,
         puppy: 0
         });
+
+    const clientImg = [
+    "https://datamond-surveyimg.s3.ap-northeast-2.amazonaws.com/result_crow.png", 
+    "https://datamond-surveyimg.s3.ap-northeast-2.amazonaws.com/result_dungbeetle.png", 
+    "https://datamond-surveyimg.s3.ap-northeast-2.amazonaws.com/result_meerkat.png", 
+    "https://datamond-surveyimg.s3.ap-northeast-2.amazonaws.com/result_paresseux.png", 
+    "https://datamond-surveyimg.s3.ap-northeast-2.amazonaws.com/result_puppy.png",
+    "https://datamond-surveyimg.s3.ap-northeast-2.amazonaws.com/result_squirrel.png", 
+    "https://datamond-surveyimg.s3.ap-northeast-2.amazonaws.com/result_sunfish.png"
+    ];
+    
+    const result_name = [
+        "crow",
+        "dungbeetle",
+        "meerkat",
+        "paresseux",
+        "puppy",
+        "squirrel",
+        "sunfish",
+    ];
+    
+    const result_sentence = [
+        "https://datamond-surveyimg.s3.ap-northeast-2.amazonaws.com/sentence_crow.png",
+        "https://datamond-surveyimg.s3.ap-northeast-2.amazonaws.com/sentence_dungbeetle.png",
+        "https://datamond-surveyimg.s3.ap-northeast-2.amazonaws.com/sentence_meerkat.png",
+        "https://datamond-surveyimg.s3.ap-northeast-2.amazonaws.com/sentence_paresseux.png",
+        "https://datamond-surveyimg.s3.ap-northeast-2.amazonaws.com/sentence_puppy.png",
+        "https://datamond-surveyimg.s3.ap-northeast-2.amazonaws.com/sentence_squirrel.png",
+        "https://datamond-surveyimg.s3.ap-northeast-2.amazonaws.com/sentence_sunfish.png"
+    ];
+    
+    
 
     const [back1, setBack1] = useState();
     const [back2, setBack2] = useState();
@@ -79,7 +114,53 @@ function Test (props) {
             setBack10(clientResult);
         }
         else {
-            props.history.push("/result", { ...clientResult, meerkat: clientResult.meerkat+3 });
+
+            const result_array = [
+                clientResult.crow,
+                clientResult.dungbeetle,
+                clientResult.meerkat+3,
+                clientResult.paresseux,
+                clientResult.puppy,
+                clientResult.squirrel,
+                clientResult.sunfish,
+            ];
+        
+            const resultImg = [
+                { name: "crow", value: clientResult.crow }, 
+                { name: "dungbeetle", value: clientResult.dungbeetle },
+                { name: "meerkat", value: clientResult.meerkat+3 },
+                { name: "paresseux", value: clientResult.paresseux },
+                { name: "puppy", value: clientResult.puppy },
+                { name: "squirrel", value: clientResult.squirrel },
+                { name: "sunfish", value: clientResult.sunfish }
+            ];
+            
+            var sortingField = "value";
+            
+            const ImgName = resultImg.sort(function(a, b) { // 내림차순
+                return b[sortingField] - a[sortingField];
+            });
+        
+            let resultname = result_name[result_array.indexOf(ImgName[0].value)];
+            let usertype = result_name[result_array.indexOf(ImgName[0].value)];
+            let userimg = clientImg[result_array.indexOf(ImgName[0].value)];
+            let userimgsentence = result_sentence[result_array.indexOf(ImgName[0].value)];
+
+            axios.post('https://backend-survey.herokuapp.com/create', {
+                user_nickname: nickname,
+                user_result: resultname,
+                user_img: userimg,
+                user_img_sentence: userimgsentence
+            }).then(function () {
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            axios.post('https://backend-survey.herokuapp.com/update', {
+                    type: usertype
+                }).then(function () {
+                }).catch(function (error) {
+                    console.log(error);
+                });
         }
     }
     const twoButton = () => {
@@ -134,7 +215,51 @@ function Test (props) {
             setBack10(clientResult);
         }
         else {
-            props.history.push("/result", { ...clientResult, dungbeetle: clientResult.dungbeetle+3 });
+            const result_array = [
+                clientResult.crow,
+                clientResult.dungbeetle+3,
+                clientResult.meerkat,
+                clientResult.paresseux,
+                clientResult.puppy,
+                clientResult.squirrel,
+                clientResult.sunfish,
+            ];
+        
+            const resultImg = [
+                { name: "crow", value: clientResult.crow }, 
+                { name: "dungbeetle", value: clientResult.dungbeetle+3 },
+                { name: "meerkat", value: clientResult.meerkat },
+                { name: "paresseux", value: clientResult.paresseux },
+                { name: "puppy", value: clientResult.puppy },
+                { name: "squirrel", value: clientResult.squirrel },
+                { name: "sunfish", value: clientResult.sunfish }
+            ];
+            
+            var sortingField = "value";
+            
+            const ImgName = resultImg.sort(function(a, b) { // 내림차순
+                return b[sortingField] - a[sortingField];
+            });
+        
+            let resultname = result_name[result_array.indexOf(ImgName[0].value)];
+            let usertype = result_name[result_array.indexOf(ImgName[0].value)];
+            let userimg = clientImg[result_array.indexOf(ImgName[0].value)];
+            let userimgsentence = result_sentence[result_array.indexOf(ImgName[0].value)];
+            axios.post('https://backend-survey.herokuapp.com/create', {
+                user_nickname: nickname,
+                user_result: resultname,
+                user_img: userimg,
+                user_img_sentence: userimgsentence
+            }).then(function () {
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            axios.post('https://backend-survey.herokuapp.com/update', {
+                    type: usertype
+                }).then(function () {
+                }).catch(function (error) {
+                    console.log(error);
+                });
         }
     }
     const threeButton = () => {
@@ -189,7 +314,52 @@ function Test (props) {
             setBack10(clientResult);
         }
         else {
-            props.history.push("/result", { ...clientResult, crow: clientResult.crow+3 });
+            const result_array = [
+                clientResult.crow+3,
+                clientResult.dungbeetle,
+                clientResult.meerkat,
+                clientResult.paresseux,
+                clientResult.puppy,
+                clientResult.squirrel,
+                clientResult.sunfish,
+            ];
+        
+            const resultImg = [
+                { name: "crow", value: clientResult.crow+3 }, 
+                { name: "dungbeetle", value: clientResult.dungbeetle },
+                { name: "meerkat", value: clientResult.meerkat },
+                { name: "paresseux", value: clientResult.paresseux },
+                { name: "puppy", value: clientResult.puppy },
+                { name: "squirrel", value: clientResult.squirrel },
+                { name: "sunfish", value: clientResult.sunfish }
+            ];
+            
+            var sortingField = "value";
+            
+            const ImgName = resultImg.sort(function(a, b) { // 내림차순
+                return b[sortingField] - a[sortingField];
+            });
+        
+            let resultname = result_name[result_array.indexOf(ImgName[0].value)];
+            let usertype = result_name[result_array.indexOf(ImgName[0].value)];
+            let userimg = clientImg[result_array.indexOf(ImgName[0].value)];
+            let userimgsentence = result_sentence[result_array.indexOf(ImgName[0].value)];
+
+            axios.post('https://backend-survey.herokuapp.com/create', {
+                user_nickname: nickname,
+                user_result: resultname,
+                user_img: userimg,
+                user_img_sentence: userimgsentence
+            }).then(function () {
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            axios.post('https://backend-survey.herokuapp.com/update', {
+                    type: usertype
+                }).then(function () {
+                }).catch(function (error) {
+                    console.log(error);
+                });
         }
     }
     const fourButton = () => {
@@ -244,7 +414,52 @@ function Test (props) {
             setBack10(clientResult);
         }
         else {
-            props.history.push("/result", { ...clientResult, sunfish: clientResult.sunfish+3 });
+            const result_array = [
+                clientResult.crow,
+                clientResult.dungbeetle,
+                clientResult.meerkat,
+                clientResult.paresseux,
+                clientResult.puppy,
+                clientResult.squirrel,
+                clientResult.sunfish+3,
+            ];
+        
+            const resultImg = [
+                { name: "crow", value: clientResult.crow }, 
+                { name: "dungbeetle", value: clientResult.dungbeetle },
+                { name: "meerkat", value: clientResult.meerkat },
+                { name: "paresseux", value: clientResult.paresseux },
+                { name: "puppy", value: clientResult.puppy },
+                { name: "squirrel", value: clientResult.squirrel },
+                { name: "sunfish", value: clientResult.sunfish+3 }
+            ];
+            
+            var sortingField = "value";
+            
+            const ImgName = resultImg.sort(function(a, b) { // 내림차순
+                return b[sortingField] - a[sortingField];
+            });
+        
+            let resultname = result_name[result_array.indexOf(ImgName[0].value)];
+            let usertype = result_name[result_array.indexOf(ImgName[0].value)];
+            let userimg = clientImg[result_array.indexOf(ImgName[0].value)];
+            let userimgsentence = result_sentence[result_array.indexOf(ImgName[0].value)];
+
+            axios.post('https://backend-survey.herokuapp.com/create', {
+                user_nickname: nickname,
+                user_result: resultname,
+                user_img: userimg,
+                user_img_sentence: userimgsentence
+            }).then(function () {
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            axios.post('https://backend-survey.herokuapp.com/update', {
+                    type: usertype
+                }).then(function () {
+                }).catch(function (error) {
+                    console.log(error);
+                });
         }
     }
 
@@ -635,10 +850,18 @@ function Test (props) {
                             <span className="subject2">한번 해볼까?</span>
                         </div>
                     <div className="btn_box">
-                        <button className = "one_btn" onClick={oneButton}>부자가 되려면 위험은 감수해야지!</button>
-                        <button className = "two_btn" onClick={twoButton}>벌만큼 벌었다! 과유불급</button>
-                        <button className = "three_btn" onClick={threeButton}>이미 하고 있다</button>
-                        <button className = "four_btn"onClick={fourButton}>코인은 너무 위험한듯! 패스!</button>
+                        <Link to = {`/result${nickname}`}>
+                            <button className = "one_btn" onClick={oneButton}>부자가 되려면 위험은 감수해야지!</button>
+                        </Link>
+                        <Link to = {`/result${nickname}`}>
+                            <button className = "two_btn" onClick={twoButton}>벌만큼 벌었다! 과유불급</button>
+                        </Link>
+                        <Link to = {`/result${nickname}`}>
+                            <button className = "three_btn" onClick={threeButton}>이미 하고 있다</button>
+                        </Link>
+                        <Link to = {`/result${nickname}`}>
+                            <button className = "four_btn"onClick={fourButton}>코인은 너무 위험한듯! 패스!</button>
+                        </Link>
                     </div>
                 </div>
             </div>
