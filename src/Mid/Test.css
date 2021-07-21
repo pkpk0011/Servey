@@ -72,12 +72,6 @@ button {
     -webkit-tap-highlight-color: rgb(0, 0, 0, 0);
 }
 
-.buttonLink1, .buttonLink2, .buttonLink3, .buttonLink4 {
-    display: contents;
-    text-decoration: none;
-}
-
-
 .status {
     display: flex;
     margin-top: 30px;

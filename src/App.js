@@ -20,9 +20,9 @@ function App() {
         </div>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/test:nickname" component={Test} />
-            <Route path="/result:nickname" component={Result} />
-            <Route path="/rank:nickname" component={Rank} />
+            <Route path="/test/:nickname" component={Test} />
+            <Route path="/result/:nickname/:img" component={Result} />
+            <Route path="/rank/:nickname/:img" component={Rank} />
           </Switch>
       </Router>
     </div>

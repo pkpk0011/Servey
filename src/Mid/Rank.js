@@ -3,7 +3,6 @@ import shareMethod from '../Img/shareMethod.png';
 import KakaoShareButton from '../KakaoShareButton';
 import copyLink from '../Img/copyLink.png';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { Link } from "react-router-dom";
 import { useEffect } from 'react';
 
 function Rank (props) {
@@ -11,6 +10,7 @@ function Rank (props) {
     console.log(props.location.state);
 
     const nickname = props.match.params.nickname;
+    const number = props.match.params.img;
 
     const rankValue = props.location.state[0];
     const clientLength = props.location.state[1];
@@ -23,14 +23,18 @@ function Rank (props) {
         window.scrollTo(0, 0);
     }, []);
 
+    const goResult = () => {
+        props.history.push(`/result/${nickname}/${number}`, "good");
+    }
+
     return (
         <div className="Rank_area">
+        {rankValue ? 
+        <>
             <div className = "realTimeTitle">
-                <Link to={`/result${nickname}`}>
-                <span className = "realTitle">
+                <span className = "realTitle" onClick={goResult}>
                     실시간 순위
                 </span>
-                </Link>
             </div>           
                 <div className="realTimeRank">
                     <div className="realRanking">
@@ -209,7 +213,14 @@ function Rank (props) {
                 </div>
 
             </div>
-            
+            </>
+            :
+            <div className = "realTimeTitle">
+                <span className = "realTitle" onClick={goResult}>
+                    실시간 순위
+                </span>
+            </div>    
+        }
         </div>  
     ) 
 }

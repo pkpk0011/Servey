@@ -48,7 +48,7 @@ function Home (props) {
             </div>
             <div>
                 {client ? 
-                <Link to={`/test${client}`}>
+                <Link to={`/test/${client}`}>
                     <button type="button" className="btn_start">
                         START
                     </button>
