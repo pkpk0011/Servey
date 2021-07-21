@@ -140,11 +140,11 @@ function Result (props) {
                             {nickname} 님은
                         </span>
                         <img src= {levelimg[number]} className="result_img" alt="result_img" />
-                        <div className="type_per">
-                            나와 같은 유형 38%
-                        </div>
                         <div className="sentence">
                             <img src = {textimg[number]} className="sentence_img" alt="sentence_img" />
+                        </div>
+                        <div className="type_per">
+                            나와 같은 유형 38%
                         </div>
                     </div>
                 </div>

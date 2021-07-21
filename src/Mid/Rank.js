@@ -31,11 +31,19 @@ function Rank (props) {
         <div className="Rank_area">
         {rankValue ? 
         <>
+            <div className="title_total">
+                <div className="go_result">
+                <button className="backresult_btn" onClick={goResult}>
+                    <i className="fas fa-chevron-left" />
+                </button>
+                </div>
             <div className = "realTimeTitle">
-                <span className = "realTitle" onClick={goResult}>
+                <div className = "realTitle">
                     실시간 순위
-                </span>
-            </div>           
+                </div>
+                <div className = "realTitleBottom" />
+            </div>
+            </div>      
                 <div className="realTimeRank">
                     <div className="realRanking">
                         <span className="spanRanking">
@@ -215,11 +223,19 @@ function Rank (props) {
             </div>
             </>
             :
+            <div className="title_total">
+                <div className="go_result">
+                <button className="backresult_btn" onClick={goResult}>
+                    <i className="fas fa-chevron-left" />
+                </button>
+                </div>
             <div className = "realTimeTitle">
-                <span className = "realTitle" onClick={goResult}>
+                <div className = "realTitle">
                     실시간 순위
-                </span>
-            </div>    
+                </div>
+                <div className = "realTitleBottom" />
+            </div>
+            </div>
         }
         </div>  
     ) 
